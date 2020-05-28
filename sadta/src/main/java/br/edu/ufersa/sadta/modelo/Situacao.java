@@ -1,19 +1,17 @@
 package br.edu.ufersa.sadta.modelo;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Situacoes")
-public class Situacao implements Serializable {
+public class Situacao implements Serializable, Comparable<Situacao> {
 	/**
 	 * 
 	 */
@@ -29,9 +27,11 @@ public class Situacao implements Serializable {
 
 	@Column(name = "nome_situacao", nullable = false, unique = true)
 	private String nomeSituacao;
-	
-	@ManyToMany(targetEntity = Caso.class)
-	private List<Caso> casosSituacao;
+
+	@Override
+	public int compareTo(Situacao o) {
+		return this.getNomeSituacao().compareTo(o.getNomeSituacao());
+	}
 
 	public Long getCodigoSituacao() {
 		return codigoSituacao;
@@ -55,13 +55,5 @@ public class Situacao implements Serializable {
 
 	public void setNomeSituacao(String nomesituacao) {
 		this.nomeSituacao = nomesituacao;
-	}
-
-	public List<Caso> getCasosSituacao() {
-		return casosSituacao;
-	}
-
-	public void setCasosSituacao(List<Caso> casosSituacao) {
-		this.casosSituacao = casosSituacao;
 	}
 }

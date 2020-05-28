@@ -8,4 +8,6 @@ import br.edu.ufersa.sadta.modelo.TipoPaciente;
 public interface TipoPacienteRepository extends JpaRepository<TipoPaciente, Long> {
 	TipoPaciente findByIriTipoPaciente(String iri);
 
+	TipoPaciente findByCodigoTipoPaciente(Long long1);
+
 }

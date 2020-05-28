@@ -86,7 +86,7 @@
 
                         </div>
                         <div class="row">
-                        <form action="analisar" method="post">
+                        <form action="analisar-hipotese" method="post">
                         	<div class="col-xl-12">
                                 <div class="section-block">
                                     <h3 class="section-title">Seleção de Sintomas</h3>

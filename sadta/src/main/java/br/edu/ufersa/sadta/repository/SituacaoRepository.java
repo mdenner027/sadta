@@ -8,4 +8,8 @@ import br.edu.ufersa.sadta.modelo.Situacao;
 
 public interface SituacaoRepository extends JpaRepository<Situacao, Long> {
 	List<Situacao> findAllByOrderByNomeSituacao();
+
+	Situacao findByIriSituacao(String iri);
+
+	Situacao findByCodigoSituacao(Long long1);
 }

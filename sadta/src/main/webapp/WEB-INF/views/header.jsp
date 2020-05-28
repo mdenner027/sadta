@@ -50,7 +50,10 @@
                                 <a class="nav-link" id="caso-normal" href="analisar-caso"><i class = "far fa-plus-square"></i>&nbsp;Analisar Caso</a>
 							</li>
                             <li class="nav-item">
-                            	<a class="nav-link" id="caso-teste" href="analisar-caso-teste"><i class = "far fa-plus-square"></i>&nbsp; Gerar Caso de Teste</a>
+                            	<a class="nav-link" id="caso-teste" href="analisar-caso-hipotetico"><i class = "far fa-plus-square"></i>&nbsp; Gerar Caso Hipotéticos</a>
+                            </li>
+                            <li class="nav-item">
+                            	<a class="nav-link" id="casos-hipoteticos" href="casos-hipoteticos-registrados"><i class = "fas fa-list-ul"></i>&nbsp; Listar Casos Hipotéticos</a>
                             </li>
 						</ul>
                     </div>

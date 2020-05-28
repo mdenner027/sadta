@@ -12,4 +12,6 @@ public interface ComorbidadeRepository extends JpaRepository<Comorbidade, Long> 
 	@Query("select c from Comorbidade c where c.iriComorbidade = ?1 AND c.iriComorbidade != ?2")
 	Comorbidade findSemComorbidade(String iri, String comorbidade);
 
+	Comorbidade findByCodigoComorbidade(Long long1);
+
 }

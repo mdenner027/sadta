@@ -1,14 +1,12 @@
 package br.edu.ufersa.sadta.modelo;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,9 +27,6 @@ public class Transtorno implements Serializable {
 
 	@Column(name = "nome_transtorno", nullable = false, unique = true)
 	private String nomeTranstorno;
-
-	@ManyToMany(targetEntity = Caso.class)
-	private List<Caso> casosTranstorno;
 
 	public Long getCodigoTranstorno() {
 		return codigoTranstorno;
@@ -55,13 +50,5 @@ public class Transtorno implements Serializable {
 
 	public void setNomeTranstorno(String nomeTranstorno) {
 		this.nomeTranstorno = nomeTranstorno;
-	}
-
-	public List<Caso> getCasosTranstorno() {
-		return casosTranstorno;
-	}
-
-	public void setCasosTranstorno(List<Caso> casosTranstorno) {
-		this.casosTranstorno = casosTranstorno;
 	}
 }

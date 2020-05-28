@@ -33,19 +33,19 @@ public class Caso implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataRegistroCaso;
 
-	@ManyToMany(mappedBy = "casosSituacao", targetEntity = Situacao.class)
+	@ManyToMany()
 	private List<Situacao> situacoesCaso;
 
-	@ManyToMany(mappedBy = "casosSintoma", targetEntity = Sintoma.class)
+	@ManyToMany()
 	private List<Sintoma> sintomasCaso;
 
-	@ManyToMany(mappedBy = "casosTranstorno", targetEntity = Transtorno.class)
+	@ManyToMany()
 	private List<Transtorno> transtornosCaso;
 
-	@ManyToMany(mappedBy = "casosComorbidade", targetEntity = Comorbidade.class)
+	@ManyToMany()
 	private List<Comorbidade> comorbidadesCaso;
 
-	@ManyToMany(mappedBy = "casosTipoPaciente", targetEntity = TipoPaciente.class)
+	@ManyToMany()
 	private List<TipoPaciente> tiposPacienteCaso;
 
 	public Long getCodigoCaso() {

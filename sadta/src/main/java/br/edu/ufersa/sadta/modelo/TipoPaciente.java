@@ -1,19 +1,17 @@
 package br.edu.ufersa.sadta.modelo;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Tipos_Paciente")
-public class TipoPaciente implements Serializable {
+public class TipoPaciente implements Serializable, Comparable<TipoPaciente> {
 	/**
 	 * 
 	 */
@@ -30,9 +28,11 @@ public class TipoPaciente implements Serializable {
 	@Column(name = "nome_tipo_paciente", nullable = false, unique = true)
 	private String nomeTipoPaciente;
 
-	@ManyToMany
-	private List<Caso> casosTipoPaciente;
-
+	@Override
+	public int compareTo(TipoPaciente o) {
+		return this.getNomeTipoPaciente().compareTo(o.getNomeTipoPaciente());
+	}
+	
 	public Long getCodigoTipoPaciente() {
 		return codigoTipoPaciente;
 	}
@@ -56,13 +56,4 @@ public class TipoPaciente implements Serializable {
 	public void setNomeTipoPaciente(String nomeTipoPaciente) {
 		this.nomeTipoPaciente = nomeTipoPaciente;
 	}
-
-	public List<Caso> getCasosTipoPaciente() {
-		return casosTipoPaciente;
-	}
-
-	public void setCasosTipoPaciente(List<Caso> casosTipoPaciente) {
-		this.casosTipoPaciente = casosTipoPaciente;
-	}
-
 }

@@ -49,6 +49,15 @@ public class OntologiaOwlApi {
 	public Caso inferirDados(String[] sintoma, String[] situacao, int tempo, Ontologia ont)
 			throws OWLOntologyCreationException, FileNotFoundException {
 		Caso caso = new Caso();
+		if (situacao == null || sintoma == null) {
+			List<Comorbidade> comorbidades = new ArrayList<>();
+			List<TipoPaciente> tipos = new ArrayList<>();
+			tipos.add(tipoRepository.findByIriTipoPaciente("paciente_sem_transtorno_de_ansiedade_especifico"));
+			comorbidades.add(comorbidadeRepository.findByIriComorbidade("no_comorbidities_related"));
+			caso.setComorbidadesCaso(comorbidades);
+			caso.setTiposPacienteCaso(tipos);
+			return caso;
+		}
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		InputStream input = new ByteArrayInputStream(ont.getVersaoOntologia());
 		OWLOntology ontology = manager.loadOntologyFromOntologyDocument(input);
@@ -56,6 +65,7 @@ public class OntologiaOwlApi {
 		OWLObjectProperty hasSymptom = df.getOWLObjectProperty(prefix + "has_symptom");
 		OWLObjectProperty hasSituation = df.getOWLObjectProperty(prefix + "has_situation");
 		OWLNamedIndividual transtorno = df.getOWLNamedIndividual(prefix + "transtorno");
+
 		for (int i = 0; i < sintoma.length; i++) {
 			OWLNamedIndividual symptom = df.getOWLNamedIndividual(IRI.create(prefix + "sintoma" + i));
 			OWLClass cls = df.getOWLClass(prefix + sintoma[i]);
@@ -92,7 +102,7 @@ public class OntologiaOwlApi {
 		Set<OWLClass> pacienteComorbidades = r.getTypes(df.getOWLNamedIndividual(prefix + "comorbidade"), false)
 				.getFlattened();
 
-		List<TipoPaciente> tiposPacienteCaso = new ArrayList<TipoPaciente>();
+		List<TipoPaciente> tiposPacienteCaso = new ArrayList<>();
 		for (Iterator<OWLClass> it = pacienteTranstornos.iterator(); it.hasNext();) {
 			OWLClass classe = it.next();
 			if (!classe.getIRI().toString().equals(prefix + "patient")) {
@@ -101,7 +111,7 @@ public class OntologiaOwlApi {
 			}
 		}
 
-		List<Comorbidade> comorbidadesCaso = new ArrayList<Comorbidade>();
+		List<Comorbidade> comorbidadesCaso = new ArrayList<>();
 		for (Iterator<OWLClass> it = pacienteComorbidades.iterator(); it.hasNext();) {
 			OWLClass classe = it.next();
 			if (!classe.getIRI().toString().equals(prefix + "comorbidities")) {
@@ -111,11 +121,12 @@ public class OntologiaOwlApi {
 
 		}
 		Comorbidade semComorbidade = comorbidadeRepository.findByIriComorbidade("no_comorbidities_related");
+
+		Comorbidade comorbidadeNula = null;
+		comorbidadesCaso.remove(comorbidadeNula);
 		if (comorbidadesCaso.size() > 1) {
 			comorbidadesCaso.remove(semComorbidade);
 		}
-		Comorbidade comorbidadeNula = null;
-		comorbidadesCaso.remove(comorbidadeNula);
 		caso.setComorbidadesCaso(comorbidadesCaso);
 		caso.setTiposPacienteCaso(tiposPacienteCaso);
 		return caso;

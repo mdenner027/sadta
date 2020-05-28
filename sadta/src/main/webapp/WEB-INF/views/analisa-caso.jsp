@@ -86,7 +86,7 @@
 
                         </div>
                         <div class="row">
-                        <form action="analisar" method="post">
+                        <form name="formulario" method="post">
                         	<div class="col-xl-12">
                                 <div class="section-block">
                                     <h3 class="section-title">Seleção de Sintomas</h3>
@@ -111,7 +111,10 @@
                                 <div class="card">
                                     <h4 class="card-header">Tempo do sintomas, em meses</h4>
                                     <div class="card-body"> 
-										<input id="tempo" name="tempoSintomasCaso" min="0" placeholder="Ex.: 15" max="1080" type="number" class="form-control">					
+										<input id="tempo-sintomas" name="tempoSintomasCaso" min="0" placeholder="Ex.: 15" max="1080" type="number" class="form-control">	
+										<div class="invalid-feedback" id="tempo-validation">
+                                                Ops! O tempo informado para os sintomas não é válido. Por favor, insira um valor numérico.
+                                        </div>				
                                     </div>
                                 </div>
                            	</div>   
@@ -135,7 +138,9 @@
                            	<div class="col-xl-12">
                             	<div class="card">
                                     <div class="card-body"> 
-										<input type="submit" value="Realizar Análise" class="btn btn-success btn-block"/>
+                                    <button class="btn btn-success btn-block" type="button" onclick="validaCaso();">
+                                    	Realizar Análise
+                                    </button>
                                     </div>
                                 </div>
                            </div>
