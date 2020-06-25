@@ -59,10 +59,10 @@ public class CasoController {
 	@Autowired
 	private SituacaoRepository situacaoRepository;
 
-	@RequestMapping(value = "/")
-	public String redirecionaAnalisar() {
-		return "redirect:analisar-caso";
-	}
+//	@RequestMapping(value = "/")
+//	public String redirecionaAnalisar() {
+//		return "redirect:analisar-caso";
+//	}
 
 	@RequestMapping(value = "salvar-caso-teste", method = RequestMethod.POST)
 	public String salvarCasoTeste(int tempoSintomasCaso, Long[] codigoComorbidade, Long[] codigoTipoPaciente,

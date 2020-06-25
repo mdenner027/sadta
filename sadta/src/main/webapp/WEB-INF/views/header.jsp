@@ -19,9 +19,9 @@
         <!-- ============================================================== -->
         <!-- navbar -->
         <!-- ============================================================== -->
-        <div class="dashboard-header">
+        <div class="dashboard-header" id="header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="analisar-caso">SADTA</a>
+                <a class="navbar-brand" href="inicio">SADTA</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -49,12 +49,14 @@
                             <li class="nav-item">
                                 <a class="nav-link" id="caso-normal" href="analisar-caso"><i class = "far fa-plus-square"></i>&nbsp;Analisar Caso</a>
 							</li>
+						 	<!--  
                             <li class="nav-item">
                             	<a class="nav-link" id="caso-teste" href="analisar-caso-hipotetico"><i class = "far fa-plus-square"></i>&nbsp; Gerar Caso Hipotéticos</a>
                             </li>
                             <li class="nav-item">
                             	<a class="nav-link" id="casos-hipoteticos" href="casos-hipoteticos-registrados"><i class = "fas fa-list-ul"></i>&nbsp; Listar Casos Hipotéticos</a>
                             </li>
+                            -->
 						</ul>
                     </div>
                 </nav>

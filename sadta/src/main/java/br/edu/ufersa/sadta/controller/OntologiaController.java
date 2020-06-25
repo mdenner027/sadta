@@ -50,7 +50,7 @@ public class OntologiaController {
 	}
 
 	@RequestMapping(value = "analisar", method = RequestMethod.POST)
-	public String analisar(String[] sintomasCaso, String[] situacoesCaso, int tempoSintomasCaso, String link,
+	public String analisar(String[] sintomasCaso, String[] situacoesCaso, Integer tempoSintomasCaso, String link,
 			Model model) {
 		Caso caso = new Caso();
 		try {
@@ -61,16 +61,15 @@ public class OntologiaController {
 		}
 
 		if (!(sintomasCaso == null || situacoesCaso == null)) {
-			model.addAttribute("situacoes", getSituacoes(situacoesCaso));
-			model.addAttribute("sintomas", getSintomas(sintomasCaso));
+			caso.setSintomasCaso(getSintomas(sintomasCaso));
+			caso.setSituacoesCaso(getSituacoes(situacoesCaso));
 		}
-		model.addAttribute("transtornos", caso.getTiposPacienteCaso());
-		model.addAttribute("comorbidades", caso.getComorbidadesCaso());
-		model.addAttribute("tempo", tempoSintomasCaso);
+		caso.setTempoSintomasCaso(tempoSintomasCaso);
+		model.addAttribute("caso", caso);
 		model.addAttribute("link", link);
 		return "results";
 	}
-	
+
 	@RequestMapping(value = "analisar-hipotese", method = RequestMethod.POST)
 	public String analisarHipotese(String[] sintomasCaso, String[] situacoesCaso, int tempoSintomasCaso, String link,
 			Model model) {
@@ -92,7 +91,6 @@ public class OntologiaController {
 		model.addAttribute("link", link);
 		return "resultados";
 	}
-
 
 	private List<Sintoma> getSintomas(String[] sintomasArray) {
 		List<Sintoma> sintomas = new ArrayList<>();

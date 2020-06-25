@@ -135,17 +135,16 @@
                     
                     	<div class="row">
 							<div class="col-md-6">
-								<a href="casos-hipoteticos-registrados" class="btn btn-rounded btn-secondary btn-block">Voltar</a>
+								<a href="casos-hipoteticos-registrados" class="btn  btn-secondary btn-block">Voltar</a>
 							</div>
 							<div class="col-md-6">
-								<button id="bt-analise" onclick="avaliarCaso();" class="btn btn-primary btn-block btn-rounded" type="button">
+								<button id="bt-analise" onclick="avaliarCaso();" class="btn btn-primary btn-block " type="button">
 									Avaliar
 								</button>
-								<button hidden="" id="confirmar" class="btn btn-success btn-block btn-rounded" type="submit">
+								<button id="confirmar" hidden="" class="btn btn-success btn-block " type="button">
 									Confirmar Avaliação
 								</button>
 							</div>
-							
                         </div>
                     </div>
                 </div>

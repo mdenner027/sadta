@@ -31,7 +31,6 @@
 						<td align="right" class="elemento" hidden="">
 							<input type="text" name="comorbidades" value="${comorbidade.codigoComorbidade}" hidden="" readonly="readonly">
 							<select required="required" name="validaComorbidade" class="form-control" id="input-select">
-								<option selected="selected" disabled="disabled">Escolha seu parecer</option>
 								<option value="true">Concordo</option>
 								<option value="false">Discordo</option>
 							</select>

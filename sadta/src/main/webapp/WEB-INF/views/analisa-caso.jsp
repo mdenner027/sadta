@@ -41,50 +41,9 @@
                         <!-- ============================================================== -->
                         <!-- end pageheader  -->
                         <!-- ============================================================== -->
-                        <div class="page-section" id="overview">
-                            <!-- ============================================================== -->
-                            <!-- overview  -->
-                            <!-- ============================================================== -->
-                            <div class="row">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h2 class="page-header">Introdução</h2>
-                                    <p class="">
-                                    	A presente aplicação trata-se de uma ferramenta online, a qual tem como principal
-                                    	objetivo fornecer auxílio a psícologos e psiquiatras no processo de diagnóstico de 
-                                    	transtornos de ansiedade. <!-- Dessa forma, a ferramenta é consituída das seguintes etapas: -->
-                                    </p>
-                                    <!-- 
-                                    <ul class="list-unstyled arrow">
-                                        <li>
-                                        1 - Selecionar sintomas: primeiramente, é preciso selecionar todos os sintomas
-                                        correspondes ao paciente.
-                                        </li>
-                                        <li>
-                                        2 - Informar o tempo dos sintomas: após selecionar os sintomas, é necessário nessa etapa
-                                        que seja informado quanto tempo, em meses, em que o paciente vem percebendo os sintomas em seu cotidiano.
-                                        </li>
-                                        <li>
-                                        3 - Selecionar as situações: consiste em selecionar as principais situações nas quais 
-                                        os indicadores sintomáticos tornam-se perceptíveis para o paciente.
-                                        </li>
-                                        <li>
-                                        4 - Ao clicar em "Analisar Dados", você será direcionado para outrá página, onde esta
-                                        apresenta um conjunto de possíveis transtornos e comorbidades que podem estar associadas ao paciente em questão.
-                                        </li>
-                                    </ul>
-                                     -->
-                                </div>
-                            </div>
-                            <!-- ============================================================== -->
-                            <!-- end overview  -->
-                            <!-- ============================================================== -->
-                        </div>
                         <!-- ============================================================== -->
                         <!-- basic form  -->
                         <!-- ============================================================== -->
-                        <div class="row">
-
-                        </div>
                         <div class="row">
                         <form name="formulario" method="post">
                         	<div class="col-xl-12">
@@ -109,7 +68,7 @@
                                     <p></p>
                                 </div>
                                 <div class="card">
-                                    <h4 class="card-header">Tempo do sintomas, em meses</h4>
+                                    <h4 class="card-header">Tempo dos sintomas, em meses</h4>
                                     <div class="card-body"> 
 										<input id="tempo-sintomas" name="tempoSintomasCaso" min="0" placeholder="Ex.: 15" max="1080" type="number" class="form-control">	
 										<div class="invalid-feedback" id="tempo-validation">

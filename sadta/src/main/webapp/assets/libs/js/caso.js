@@ -3,29 +3,45 @@
  */
 
 
+function mostraS(){
+	document.getElementById("principal").hidden = true;;
+	document.getElementById("conjunto-sintomas").hidden = false;
+	location.href = "#conjunto-sintomas";
+	
+}
+
 function avaliarCaso() {
-	var elementos = document.querySelectorAll(".elemento");
+	
+	let tabsContent = document.querySelectorAll("#myTabContent5 div");
+	let tabs = document.querySelectorAll("#myTab5 a");
+	
+	for(let content of tabsContent){
+		content.classList.remove("show");
+		content.classList.remove("active");
+		
+	}
+	
+	for(let tab of tabs){
+		tab.setAttribute("aria-selected","false");
+		tab.classList.remove("show");
+		tab.classList.remove("active");	
+	}
+	
+	let elementos = document.querySelectorAll(".elemento");
 	for(let el of elementos){
 		el.hidden = false;
 	}
+	
 	var bt = document.getElementById("bt-analise");
-	// var text = document.createTextNode("Confirmar Avaliação");
 	document.getElementById("comment").hidden = false;
-	// bt.removeChild(bt.firstChild);
-	// bt.appendChild(text);
-	// /bt.classList.remove("btn-primary");
-	// bt.classList.add("btn-success");
+
 	bt.removeAttribute("onclick");
 	bt.hidden = true;
 	bt.disabled = true;
-	document.getElementById("tab1").classList.remove("active");
-	document.getElementById("tab1").classList.remove("show");
-	document.getElementById("tab1").setAttribute("aria-selected","false")
-	document.getElementById("tab3").setAttribute("aria-selected","true")
+	
+	document.getElementById("tab3").setAttribute("aria-selected","true");
 	document.getElementById("tab3").classList.add("active");
 	document.getElementById("tab3").classList.add("show");
-	document.getElementById("sintomas").classList.remove("active");
-	document.getElementById("sintomas").classList.remove("show");
 	document.getElementById("transtornos").classList.add("active");
 	document.getElementById("transtornos").classList.add("show");
 	document.getElementById("tab3").focus();	
@@ -59,7 +75,7 @@ function colapsarSituacoes() {
 }
 
 function validaCaso() {
-	var tempo = document.getElementById("tempo-sintomas").value;
+	let tempo = document.getElementById("tempo-sintomas").value;
 
 	console.log(typeof (tempo));
 	if (isNaN(tempo)) {
